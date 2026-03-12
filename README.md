@@ -25,6 +25,36 @@ This repository is intentionally sanitized. It is meant to show the design, not 
 - operational credentials
 - real user workspaces
 
+## Quick View
+
+### System Shape
+
+```mermaid
+flowchart LR
+    Admin[Admin User] --> BotAdmin[Telegram Bot: Admin]
+    UserA[Personal User A] --> BotA[Telegram Bot: User A]
+    UserB[Personal User B] --> BotB[Telegram Bot: User B]
+
+    BotAdmin --> Gateway[OpenClaw Gateway]
+    BotA --> Gateway
+    BotB --> Gateway
+
+    Tailnet[Tailscale + SSH] --> Gateway
+    Gateway --> Host[Headless Mac mini]
+    Gateway --> AgentAdmin[Admin Agent]
+    Gateway --> AgentA[Personal Agent A]
+    Gateway --> AgentB[Personal Agent B]
+```
+
+### Versioning Boundary
+
+```mermaid
+flowchart TB
+    Local[Local-only state\\nsessions, memory, credentials] --> Private[Private infra repo]
+    Private --> Public[Public use-case repo]
+    Local -. never publish directly .-> Public
+```
+
 ## Reading Order
 
 1. [Architecture](docs/architecture.md)
