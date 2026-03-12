@@ -2,20 +2,21 @@
 
 Public-safe reference repository for an always-on OpenClaw deployment on a headless macOS machine.
 
-This repository is intentionally sanitized.
+This repository is intentionally sanitized. It is meant to show the design, not to mirror live operational state.
 
-It documents:
+## What This Covers
 
-- architecture decisions
-- setup choices
-- remote access model
-- Telegram multi-bot routing
-- local voice transcription
-- local model strategy
-- watcher patterns
-- versioning boundaries
+- headless Mac mini deployment
+- loopback-only OpenClaw gateway
+- Tailscale + SSH remote administration
+- Telegram as the first user-facing channel
+- one Telegram bot per personal agent
+- local voice transcription with Whisper
+- local + remote model split
+- watcher and automation patterns
+- versioning boundaries between infra and private state
 
-It does not contain:
+## What This Does Not Contain
 
 - live secrets
 - real hostnames, IPs, or user identifiers
@@ -23,6 +24,13 @@ It does not contain:
 - private agent memory
 - operational credentials
 - real user workspaces
+
+## Reading Order
+
+1. [Architecture](docs/architecture.md)
+2. [Replication Guide](docs/replication.md)
+3. [Lessons Learned](docs/lessons-learned.md)
+4. [Versioning Boundaries](docs/versioning-boundaries.md)
 
 ## Repository Structure
 
@@ -39,5 +47,5 @@ People who want to replicate a similar OpenClaw setup without copying live opera
 
 ## Publication Rule
 
-If this repo is ever published, keep it as documentation and templates only.
+Keep this repository as documentation and templates only.
 Do not turn it into a mirror of live `~/.openclaw` state.

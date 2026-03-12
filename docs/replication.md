@@ -1,5 +1,7 @@
 # Replication Guide
 
+This is the shortest practical path to reproduce the same overall architecture safely.
+
 ## 1. Install Base Runtime
 
 ```bash
@@ -21,6 +23,11 @@ Recommended onboarding choices:
 - Telegram as the first channel
 - skip skills and hooks initially
 
+Why:
+
+- start from the smallest secure baseline
+- get chat + remote admin working before adding integrations
+
 ## 2. Remote Access
 
 Enable:
@@ -34,6 +41,8 @@ Recommended model:
 - use Tailscale Serve for browser UI
 - use SSH for admin shell access
 
+Do not expose the gateway directly to the public internet.
+
 ## 3. Telegram
 
 Start with Telegram because it is operationally simple.
@@ -44,6 +53,8 @@ Recommended defaults:
 - pairing enabled
 - group messages disabled initially
 - streaming off
+
+If you need separate personal agents, prefer one Telegram bot per agent.
 
 ## 4. Audio
 
@@ -65,6 +76,8 @@ Recommended early setup:
 - one daily brief
 - one lightweight heartbeat
 - no aggressive autonomous remediation
+
+Keep automation cheap and predictable first. Add stronger autonomy only after the host is stable.
 
 ## 6. Local Models
 
