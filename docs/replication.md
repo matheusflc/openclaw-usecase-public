@@ -79,6 +79,39 @@ Recommended early setup:
 
 Keep automation cheap and predictable first. Add stronger autonomy only after the host is stable.
 
+## Automation Flow
+
+```mermaid
+flowchart LR
+    subgraph Events[Event-driven]
+        WA[WhatsApp inbound]
+        TG[Telegram inbound]
+    end
+
+    subgraph Polling[Polling]
+        HB[Heartbeat]
+        CRON[Cron Jobs]
+        GM[Gmail checks]
+        PR[Price checks]
+    end
+
+    WA --> GW[OpenClaw Gateway]
+    TG --> GW
+    HB --> GW
+    CRON --> GW
+    GM --> HB
+    PR --> CRON
+
+    GW --> AG[Target Agent]
+    AG --> STATE[Local state files\nlast seen ids / last price / last alert]
+    AG --> MEM[Durable memory note\nonly when worth keeping]
+    AG --> ALERT[Telegram alert / digest]
+
+    RULES[Rules:\n- event-driven for chats\n- heartbeat for cheap recurring checks\n- cron for exact timing\n- alert only on changes]
+    RULES -.-> HB
+    RULES -.-> CRON
+```
+
 ## 6. Local Models
 
 Recommended split:

@@ -1,5 +1,37 @@
 # Versioning Boundaries
 
+```mermaid
+flowchart TB
+    subgraph LocalOnly[Local-only state]
+        CFG[Live openclaw.json]
+        CREDS[Credentials and tokens]
+        SESS[Sessions and transcripts]
+        MEDIA[Media / logs / device state]
+        PRIV[Private memory / case notes]
+    end
+
+    subgraph PrivateRepo[Private repo]
+        OPS[Ops docs]
+        FULL[Full setup docs]
+        SANHOOKS[Hooks and helper scripts]
+        TEMPL[Sanitized templates]
+    end
+
+    subgraph PublicRepo[Public use case repo]
+        ARCH[Architecture docs]
+        REPL[Replication guide]
+        LESSONS[Lessons learned]
+        GUARD[Public-safe templates]
+    end
+
+    LocalOnly -. never publish .-> PublicRepo
+    LocalOnly -. usually not versioned in GitHub .-> PrivateRepo
+    PrivateRepo --> PublicRepo
+
+    EXPORT[Manual sanitized export]
+    PrivateRepo --> EXPORT --> PublicRepo
+```
+
 ## Put In Git
 
 - setup docs
