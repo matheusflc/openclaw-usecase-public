@@ -1,0 +1,24 @@
+# Secrets and credentials
+.env
+*.secret
+*.token
+secrets/
+credentials/
+
+# Live OpenClaw state
+sessions/
+logs/
+media/
+telegram/
+devices/
+cron/
+delivery-queue/
+qmd/
+
+# Personal memory and exports
+**/MEMORY.private.md
+**/private/
+**/exports/
+
+# macOS noise
+.DS_Store

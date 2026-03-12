@@ -1,0 +1,23 @@
+{
+  "models": {
+    "default": "openai-codex/gpt-5.3-codex"
+  },
+  "channels": {
+    "telegram": {
+      "defaultAccount": "default",
+      "accounts": {
+        "default": {
+          "botToken": "${TELEGRAM_BOT_TOKEN}"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "bind": "loopback",
+    "port": 18789,
+    "auth": {
+      "type": "token",
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    }
+  }
+}
