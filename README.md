@@ -31,6 +31,7 @@ This repository is intentionally sanitized. It is meant to show the design, not 
 2. [Replication Guide](docs/replication.md)
 3. [Lessons Learned](docs/lessons-learned.md)
 4. [Versioning Boundaries](docs/versioning-boundaries.md)
+5. [Diagrams](docs/diagrams.md)
 
 ## Repository Structure
 
