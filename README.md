@@ -13,6 +13,8 @@ This repository is intentionally sanitized. It is meant to show the design, not 
 - one Telegram bot per personal agent
 - local voice transcription with Whisper
 - local + remote model split
+- Google Workspace integration via `gws`
+- Gemini image-model wiring for image generation/edit flows
 - watcher and automation patterns
 - versioning boundaries between infra and private state
 

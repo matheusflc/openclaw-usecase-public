@@ -73,11 +73,20 @@ This avoids API transcription cost and works well for short voice notes.
 Recommended early setup:
 
 - durable memory backend enabled
+- compaction memory flush enabled
+- a small `LEARNINGS.md` file for short operational rules
 - one daily brief
 - one lightweight heartbeat
 - no aggressive autonomous remediation
 
 Keep automation cheap and predictable first. Add stronger autonomy only after the host is stable.
+
+Practical defaults:
+
+- use `QMD` for memory search
+- enable `compaction.memoryFlush`
+- keep `AGENTS.md` short and put startup rules at the top
+- use `cron` for reminders and exact alarms instead of background `sleep` loops
 
 ## Automation Flow
 
@@ -118,10 +127,36 @@ Recommended split:
 
 - strong remote model for tool-heavy operator work
 - cheap local model for heartbeat and background checks
+- separate image model for image generation/editing when needed
 
 On a 16 GB Apple Silicon host, small/modest Ollama models are the pragmatic choice.
 
-## 7. Personal Agents
+Example:
+
+- chat/tool work: strong remote model
+- heartbeat/background checks: local `qwen2.5:7b`
+- image work: `google/gemini-3.1-flash-image-preview`
+
+## 7. Google Workspace
+
+Prefer `gws` over older Google CLIs for new setup.
+
+Recommended services:
+
+- Gmail
+- Sheets
+- Drive
+- Docs
+- Calendar
+
+Why:
+
+- better fit for agent workflows
+- broader API surface
+- structured JSON output
+- better long-term path for watchers and operational automation
+
+## 8. Personal Agents
 
 Recommended pattern:
 
@@ -136,7 +171,7 @@ Let each user define:
 - style
 - how the agent addresses them
 
-## 8. Smart-home / Daily-use Extensions
+## 9. Smart-home / Daily-use Extensions
 
 Good candidates:
 

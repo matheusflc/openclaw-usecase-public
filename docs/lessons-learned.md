@@ -14,9 +14,23 @@ Tailscale Serve is a good fit for remote browser UI without exposing the gateway
 
 Local voice transcription is viable on Apple Silicon and avoids recurring API cost.
 
+### Keep AGENTS.md short
+
+Short startup instructions work better than dumping policy into one huge boot file.
+Keep the startup sequence at the top, move personality/tool detail to separate files, and keep durable rules in `LEARNINGS.md`.
+
 ### Separate bot per agent
 
 Per-agent Telegram bots are a robust routing model when same-bot user routing is unreliable.
+
+### Use cron for reminders
+
+For alarms, reminders, and delayed follow-ups, one-shot cron jobs are better than leaving a `sleep` process hanging in the background.
+They are easier to audit, less likely to interfere with the active chat, and scale better once multiple users start asking for reminders.
+
+### Prefer gws for Google Workspace
+
+For Gmail, Sheets, Drive, Docs, and Calendar, `gws` is the cleaner path for agent use than older single-purpose Google CLIs.
 
 ## What was less clean
 
