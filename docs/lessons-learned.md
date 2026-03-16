@@ -32,6 +32,11 @@ They are easier to audit, less likely to interfere with the active chat, and sca
 
 For Gmail, Sheets, Drive, Docs, and Calendar, `gws` is the cleaner path for agent use than older single-purpose Google CLIs.
 
+### Use goplaces for local life queries
+
+For pharmacies, restaurants, clinics, and business lookup, `goplaces` is a better first tool than generic search or browser automation.
+It gives structured results and reduces noisy scraping.
+
 ## What was less clean
 
 ### GUI control on macOS
@@ -70,6 +75,7 @@ Benchmark on the real host.
 
 - keep the gateway local-only
 - prefer search before browser automation for general web lookup
+- prefer `goplaces` before generic web search for place/business lookup
 - use browser automation only when interaction is needed
 - keep heartbeat cheap
 - keep public documentation separate from live state

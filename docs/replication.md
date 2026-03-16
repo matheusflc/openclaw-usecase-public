@@ -171,7 +171,31 @@ Let each user define:
 - style
 - how the agent addresses them
 
-## 9. Smart-home / Daily-use Extensions
+## 9. Local Discovery
+
+Use `goplaces` for real-world place lookup:
+
+- restaurants
+- pharmacies
+- clinics
+- markets
+- addresses
+- opening hours
+- ratings
+
+Why:
+
+- better than generic web search for nearby places and business lookup
+- structured results
+- works well for Telegram-driven day-to-day requests
+
+Important boundary:
+
+- `goplaces` is for search/details
+- it does not write into a user's Google Maps account or saved places
+- for navigation, send Maps links instead of trying to mutate Google Maps state
+
+## 10. Smart-home / Daily-use Extensions
 
 Good candidates:
 
