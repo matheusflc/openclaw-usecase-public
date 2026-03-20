@@ -7,6 +7,7 @@ Run OpenClaw on a dedicated headless Mac mini with:
 - local gateway
 - Telegram as the first user-facing channel
 - Tailscale and SSH for remote administration
+- Screen Sharing / VNC as GUI fallback
 - browser UI exposed only over the tailnet
 - light automation and durable memory
 - separate personal agents for different end users
@@ -60,6 +61,7 @@ flowchart LR
 
 The gateway stays bound to `127.0.0.1`.
 Remote access is layered on top with Tailscale and SSH.
+When shell-only access is insufficient, Screen Sharing / VNC can be used as a GUI fallback.
 
 This keeps the control surface off the public internet.
 

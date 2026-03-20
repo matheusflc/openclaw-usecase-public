@@ -34,14 +34,22 @@ Enable:
 
 - SSH
 - Tailscale
+- Screen Sharing / VNC fallback when GUI access is needed
 
 Recommended model:
 
 - keep OpenClaw local-only
 - use Tailscale Serve for browser UI
 - use SSH for admin shell access
+- keep Screen Sharing only as a fallback for GUI-required situations
 
 Do not expose the gateway directly to the public internet.
+
+Practical note:
+
+- SSH is the primary admin path
+- Screen Sharing / VNC is useful when the operator needs a real desktop session for browser login, macOS prompts, or visual recovery
+- on Linux clients, enabling legacy VNC password mode on macOS may be required for reliable access
 
 ## 3. Telegram
 
